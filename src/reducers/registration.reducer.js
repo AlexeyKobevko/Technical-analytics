@@ -1,15 +1,23 @@
 import { handleActions } from 'redux-actions';
 
-import {loadStart, dataRecieved, errorOccured, clearErrors }  from 'actions/registration.action';
+import {loadStart, dataRecieved, errorOccured, clearErrors, clearMessage }  from 'actions/registration.action';
 
 const initialState = {
     loading: false,
     error: false,
     errorText: '',
     message: '',
+    isRegistered: false,
 };
 
 export const reducer = handleActions({
+    [clearMessage]: (state) => {
+        return {
+            ...state,
+            message: '',
+            isRegistered: true,
+        }
+    },
     [clearErrors]: (state) => {
         return {
             ...state,
