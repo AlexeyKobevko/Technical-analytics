@@ -5,6 +5,7 @@ import { eye, closeEye } from "../../images/eyes";
 
 import React, { useState } from 'react';
 import {Link} from "react-router-dom";
+import {BtnLoading} from "components/BtnLoading";
 
 export const LoginForm = (props) => {
     const [ email, setEmail ] = useState('');
@@ -37,6 +38,7 @@ export const LoginForm = (props) => {
                                            onBlur={() => setEmailFocus(false)}
                                            name="email" type="text"
                                            placeholder={emailFocus ? '' : 'Email'}
+                                           disabled={props.isLoading}
                                            value={email}/>
                                 </div>
                             </li>
@@ -49,6 +51,7 @@ export const LoginForm = (props) => {
                                            name="password"
                                            type={!type ? 'password' : 'text'}
                                            placeholder={passwordFocus ? '' : 'Пароль'}
+                                           disabled={props.isLoading}
                                            value={password}/>
                                     <div onClick={() => setType(!type)}>
                                         {!type ? closeEye : eye}
@@ -56,13 +59,17 @@ export const LoginForm = (props) => {
                                 </div>
                             </li>
                         </ul>
-                        <button onClick={() => handlerSignIn()} className={style.loginBtn}>войти</button>
+                        <button onClick={() => handlerSignIn()} className={style.loginBtn} disabled={props.isLoading}>
+                            {props.isLoading ? <BtnLoading/> : 'войти'}
+                        </button>
                         <div className={style.errorField}>
                             {props.isErrors && props.errors || props.serverError}
                         </div>
                         <div className={style.regField}>
                         <span>Первый раз на сайте?
-                            <Link className={style.link} to={'/registration'}> Зарегистрироваться</Link>
+                            {props.isLoading ?
+                            ' Зарегистрироваться' :
+                                <Link className={style.link} to={'/registration'}> Зарегистрироваться</Link>}
                         </span>
                         </div>
                     </div>

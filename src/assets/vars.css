@@ -26,6 +26,11 @@
      outline: none;
      text-transform: capitalize;
  }
-.btn:hover,.btn:active {
+.btn:hover,
+.btn:active,
+.btn:disabled {
      background: var(--hover-color);
  }
+.btn:disabled {
+    cursor: wait;
+}

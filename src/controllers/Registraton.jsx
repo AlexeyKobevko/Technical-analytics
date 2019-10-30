@@ -2,13 +2,11 @@ import React, {Component, Fragment} from 'react';
 import {connect} from "react-redux";
 
 import { RegForm } from "components/RegForm";
-import { ErrorField } from "components/ErrorField";
-import { login } from "actions/auth.action";
 import { Loading } from "components/Loading";
+import { BtnLoading } from "components/BtnLoading";
 import { validator } from "functions/validator";
-import { cleanErrors, registration } from 'actions/auth.action'
+import { cleanErrors, registration } from 'actions/registration.action'
 import { Redirect } from "react-router-dom";
-import {LoginForm} from "components/LoginForm/LoginForm";
 
 let timer;
 
@@ -32,36 +30,35 @@ class Registration extends Component {
     };
 
     handleSubmit = (...args) => {
+        const { registration } = this.props;
+
         if (validator.apply(this, [...args])) {
-            alert('Сервер на доработке под новые данные');
-            // this.props.registration(...args);
+            registration(...args);
         }
-        this.clearErrors();
-        this.props.cleanErrors();
+
+        if (!this.state.error) {
+            this.clearErrors();
+        }
+        if (this.props.reg.error) {
+            this.props.cleanErrors();
+        }
     };
 
     render() {
         const { error, errorText } = this.state;
-        const { auth } = this.props;
-        const isLoggedIn = auth.user.hasOwnProperty('token') && auth.user.token;
+        const { reg } = this.props;
+        const registered = reg.hasOwnProperty('message') && reg.message;
 
-        if (isLoggedIn) {
+        if (registered) {
             return <Redirect to={'/'} />;
         } else {
             return(
-                <Fragment>
-                    {
-                        auth.loading
-                            ?
-                            <Loading/>
-                            :
-                            <RegForm
-                                isErrors={error || auth.error}
-                                errors={errorText}
-                                serverError={auth.errorText}
-                                handleSubmit={this.handleSubmit} />
-                    }
-                </Fragment>
+                <RegForm
+                    isLoading={reg.loading}
+                    isErrors={error || reg.error}
+                    errors={errorText}
+                    serverError={reg.errorText}
+                    handleSubmit={this.handleSubmit} />
             );
         }
     }
@@ -69,13 +66,12 @@ class Registration extends Component {
 
 function mapStateToProps(state) {
     return {
-        ...state
+        reg: {...state.registration},
     }
 }
 
 function mapDispatchToProps(dispatch) {
     return {
-        login: (email, pass) => dispatch(login(email, pass)),
         registration: (...obj) => dispatch(registration(...obj)),
         cleanErrors: () => dispatch(cleanErrors()),
     }

@@ -52,14 +52,11 @@ class Auth extends Component {
           return <Redirect to={'/'} />
       } else {
           return (
-              <Fragment>
-                  {auth.loading ?
-                      <Loading/> :
-                      <LoginForm isErrors={error || auth.error}
-                                 errors={errorText}
-                                 serverError={auth.errorText}
-                                 handleSignIn={this.handleSignIn}/>}
-              </Fragment>
+              <LoginForm isErrors={error || auth.error}
+                         isLoading={auth.loading}
+                         errors={errorText}
+                         serverError={auth.errorText}
+                         handleSignIn={this.handleSignIn}/>
           );
       }
   }
@@ -67,7 +64,7 @@ class Auth extends Component {
 
 function mapStateToProps(state) {
     return {
-        ...state,
+        auth: {...state.auth},
     }
 }
 

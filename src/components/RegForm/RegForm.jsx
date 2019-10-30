@@ -5,6 +5,7 @@ import {Link} from "react-router-dom";
 
 import bg from '../../images/BG.webp'
 import { closeEye, eye } from "../../images/eyes";
+import {BtnLoading} from "components/BtnLoading";
 
 
 export const RegForm = (props) => {
@@ -48,6 +49,7 @@ export const RegForm = (props) => {
                                            onBlur={() => setCompanyFocus(false)}
                                            name="organization" type="text"
                                            placeholder={companyFocus ? '' : "Название компании"}
+                                           disabled={props.isLoading}
                                            value={organization} id="organization"/>
                                 </div>
                             </li>
@@ -58,6 +60,7 @@ export const RegForm = (props) => {
                                            onFocus={() => setNameFocus(true)}
                                            onBlur={() => setNameFocus(false)}
                                            name="name" type="text"
+                                           disabled={props.isLoading}
                                            placeholder={nameFocus ? '' : 'Ваши имя и фамилия'} value={name} />
                                 </div>
                             </li>
@@ -68,6 +71,7 @@ export const RegForm = (props) => {
                                            onFocus={() => setPhoneFocus(true)}
                                            onBlur={() => setPhoneFocus(false)}
                                            name="phone" type="tel"
+                                           disabled={props.isLoading}
                                            placeholder={phoneFocus ? '' : '+7 (___) ___-__-__'} value={phone} />
                                 </div>
                             </li>
@@ -78,6 +82,7 @@ export const RegForm = (props) => {
                                            onFocus={() => setEmailFocus(true)}
                                            onBlur={() => setEmailFocus(false)}
                                            name="username" type="email"
+                                           disabled={props.isLoading}
                                            placeholder={emailFocus ? '' : 'Email'} value={email} />
                                 </div>
                             </li>
@@ -89,6 +94,7 @@ export const RegForm = (props) => {
                                            onBlur={() => setPasswordFocus(false)}
                                            name="password"
                                            type={!passwordType ? 'password' : 'text'}
+                                           disabled={props.isLoading}
                                            placeholder={passwordFocus ? '' : 'Пароль'} value={password} />
                                     <div onClick={() => setPasswordType(!passwordType)}>
                                         {!passwordType ? closeEye : eye}
@@ -104,6 +110,7 @@ export const RegForm = (props) => {
                                            name="repeatPassword"
                                            type={!repeatPasswordType ? 'password' : 'text'}
                                            placeholder={repeatPassword ? '' : 'Повторите пароль'}
+                                           disabled={props.isLoading}
                                            value={repeatPassword} />
                                     <div onClick={() => setRepeatPasswordType(!repeatPasswordType)}>
                                         {!repeatPasswordType ? closeEye : eye}
@@ -113,16 +120,20 @@ export const RegForm = (props) => {
                         </ul>
                         <div className={style.policy}>
                             <span>Нажимая Регистрация, вы соглашаетесь с
-                                <Link to={'#'}> Политикой конфедициальности</Link>
+                                {props.isLoading ?
+                                    ' Политикой конфедициальности' :
+                                    <Link to={'#'}> Политикой конфедициальности</Link>}
                             </span>
                         </div>
-                        <button className={style.regBtn} onClick={() => handleSubmit()}>регистрация</button>
+                        <button className={style.regBtn} disabled={props.isLoading} onClick={() => handleSubmit()}>
+                            {props.isLoading ? <BtnLoading/> : 'регистрация'}
+                        </button>
                         <div className={style.errorField}>
                             {props.isErrors && props.errors || props.serverError}
                         </div>
                         <div className={style.regField}>
                             <span>Уже зарегистрированы?
-                                <Link className={style.link} to={'/login'}> Войти</Link>
+                                {props.isLoading ? ' Войти' : <Link className={style.link} to={'/login'}> Войти</Link>}
                             </span>
                         </div>
                     </div>
