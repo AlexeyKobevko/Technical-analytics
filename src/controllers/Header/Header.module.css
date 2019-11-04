@@ -13,23 +13,45 @@
   width: 112px;
   height: 21px;
 }
+.navList,
+.leftSide,
+.buttonsWrapper {
+  display: flex;
+}
+.buttonsWrapper {
+    align-items: center;
+}
+.logoWrapper,
+.navList li:not(:last-child) {
+  margin-right: 2.5rem;
+}
+.bell {
+    max-height: 1.875rem;
+    width: 1.875rem;
+}
+.bell path {
+    fill: #7B7B7B;
+}
 
 /*.logoWrapper img {*/
 /*  width: 100%;*/
 /*}*/
 
-.buttons-wrapper a:not(:last-child) {
+.buttonsWrapper div:not(:last-child) {
   margin-right: 0.5em;
 }
-.btnSignIn {
+.btnSignIn,
+.navList__item {
   font-weight: 600;
   font-size: 0.9em;
   line-height: 20px;
   color: var(--font-color);
   text-decoration: none;
+  text-transform: capitalize;
 }
 .btnSignIn:not(:last-child) {
-  margin: 5em 2em;
+  /*margin: 5em 2em;*/
+    margin: 0 2em 0 0;
 }
 .logout {
   composes: btn from "../../assets/vars.css";

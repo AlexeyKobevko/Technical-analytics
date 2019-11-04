@@ -1,6 +1,5 @@
 import React from 'react';
 import {Link} from "react-router-dom";
-import {Loading} from "components/Loading";
 import {cleanErrors, login} from "actions/auth.action";
 import {connect} from "react-redux";
 import { Redirect } from "react-router-dom";
@@ -35,17 +34,17 @@ const Main = (props) => {
     );
 };
 
-function mapStateToProps(state) {
+const mapStateToProps = (state) => {
     return {
         ...state,
     }
-}
+};
 
-function mapDispatchToProps(dispatch) {
+const mapDispatchToProps = (dispatch) => {
     return {
         login: (email, pass) => dispatch(login(email, pass)),
         cleanErrors: () => dispatch(cleanErrors()),
     }
-}
+};
 
 export const MainContainer = connect(mapStateToProps, mapDispatchToProps)(Main);
