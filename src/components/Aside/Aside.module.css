@@ -1,19 +1,30 @@
 .leftAside {
-  grid-area: aside;
-  display: flex;
-  justify-content: center;
-  position: fixed;
-}
-.nav {
-  margin: 2em 0 0 2em;
+  grid-area: Aside;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  position: fixed;
 }
-.link {
-  line-height: 2;
-  color: var(--link-color);
-  text-decoration: none;
+.logoWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #7B7B7B;
+  box-sizing: border-box;
+  border-radius: 10px;
+  width: 356px;
+  height: 240px;
+  margin-bottom: 1.8125rem;
 }
-.selected {
-  font-weight: bold;
+.btn {
+  width: 203px;
+  height: 40px;
+  background: #1A1A1B;
+  border: none;
+  border-radius: 28px;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 20px;
+  outline: none;
+  color: var(--font-color);
 }

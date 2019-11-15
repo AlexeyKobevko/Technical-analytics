@@ -1,0 +1,20 @@
+.mainContainer {
+    min-height: calc(100vh - 60px);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #252529;
+}
+.mainContainer h1 {
+    margin: 2rem 0;
+}
+.gridContainer {
+    display: grid;
+    grid-template-columns: 30% 40% 30%;
+    grid-template-rows: 1fr;
+    grid-template-areas: "Aside Statistic RightAside";
+    width: 82.5rem;
+    border-top: 1px solid #7B7B7B;
+    padding-top: 1.5rem;
+}

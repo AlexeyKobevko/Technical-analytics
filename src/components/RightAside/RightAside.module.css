@@ -1,5 +1,5 @@
 .aside {
-  grid-area: right-aside;
+  grid-area: RightAside;
   box-sizing: border-box;
   padding: 0.5em;
 }

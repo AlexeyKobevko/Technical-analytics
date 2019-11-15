@@ -41,6 +41,7 @@
   margin-right: 0.5em;
 }
 .btnSignIn,
+.name,
 .navList__item {
   font-weight: 600;
   font-size: 0.9em;

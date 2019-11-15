@@ -6,7 +6,7 @@ import {Switch, Route } from 'react-router-dom';
 import { HeaderContainer } from "controllers/Header";
 import { AuthContainer } from "controllers/Auth";
 import { RegistrationContainer } from "controllers/Registraton";
-import { MainContainer } from "components/Main";
+import { MainContainer } from "controllers/Main/Main";
 import bg from './images/BG.webp'
 
 

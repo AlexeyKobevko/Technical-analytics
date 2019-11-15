@@ -1,16 +1,19 @@
 import style from './Aside.module.css';
+import logo from '../../images/default_logo.png';
 
 import React from 'react';
-import { NavLink } from "react-router-dom";
+
 
 export const Aside = () => {
 
   return (
     <aside className={style.leftAside}>
-      <nav className={style.nav}>
-          {/*<NavLink className={style.link} to={'/login'}>Login</NavLink>*/}
-          {/*<NavLink className={style.link} to={'/registration'}>Registration</NavLink>*/}
-      </nav>
+        <div className={style.logoWrapper}>
+            <img src={logo} alt=""/>
+        </div>
+        <button className={style.btn}>
+            Изменить логотип
+        </button>
     </aside>
   );
 };
