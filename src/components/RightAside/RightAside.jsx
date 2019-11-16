@@ -5,8 +5,7 @@ import React, { Component } from 'react';
 import FullCalendar from '@fullcalendar/react';
 import interactionPlugin from '@fullcalendar/interaction';
 import dayGridPlugin from '@fullcalendar/daygrid';
-
-
+import { Calendar } from "components/Calendar/Calendar";
 
 
 export class RightAside extends Component {
@@ -16,16 +15,7 @@ export class RightAside extends Component {
     render() {
         return (
             <aside className={style.aside} >
-                <FullCalendar
-                    locale="ru"
-                    defaultView="dayGridMonth"
-                    plugins={[ interactionPlugin, dayGridPlugin ]}
-                    header={{
-                        // left: "prev,next",
-                        // center: "title",
-                    }}
-                    ref={ this.calendarComponentRef }
-                />
+                <Calendar/>
             </aside>
         );
     }
