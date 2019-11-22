@@ -1,0 +1,8 @@
+.statistic {
+    grid-area: Statistic;
+    width: 538px;
+    height: 635px;
+    background: rgba(26, 26, 27, 0.5);
+    border: none;
+    border-radius: 10px;
+}

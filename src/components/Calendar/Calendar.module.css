@@ -1,0 +1,48 @@
+.calendarContainer {
+    margin-left: 2.1875em;
+    box-sizing: border-box;
+}
+.calendarHeader {
+    box-sizing: border-box;
+    background: #7B7B7B;;
+    border-radius: 10px 10px 0 0;
+    display: flex;
+    justify-content: space-between;
+    padding: 1em 1.625em;
+}
+.calendar {
+    width: 100%;
+    padding-left: 1em;
+    background: #39393D;
+    border-radius: 0 0 10px 10px;
+}
+.labelMonth,
+.weekDay {
+    text-transform: capitalize;
+}
+.labelMonth {
+    font-family: Roboto, sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1em;
+    line-height: 19px;
+    padding: 1em 0;
+}
+.weekDay,
+.emptySlot,
+.day {
+    width: 3em;
+    height: 3em;
+    text-align: center;
+    vertical-align: middle;
+}
+.day {
+
+}
+.currentDay {
+    background: red;
+    border-radius: 50%;
+}
+.selectedDay {
+
+}
