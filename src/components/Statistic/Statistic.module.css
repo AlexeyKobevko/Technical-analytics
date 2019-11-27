@@ -1,8 +1,12 @@
 .statistic {
     grid-area: Statistic;
+    display: grid;
     width: 538px;
     height: 635px;
-    background: rgba(26, 26, 27, 0.5);
+    background: rgba(173, 173, 173, 0.15);
     border: none;
     border-radius: 10px;
+    align-items: center;
+    justify-items: center;
+    grid-template-rows: repeat(4, 1fr);
 }

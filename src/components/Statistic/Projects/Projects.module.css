@@ -1,0 +1,19 @@
+.projectsContainer {
+    display: grid;
+    grid-template-columns: 227px 311px;
+    height: calc(635px / 4);
+    align-items: center;
+    justify-items: center;
+}
+
+.projectsLogo {
+    position: relative;
+    top: -16px;
+    left: 18px;
+}
+
+.projectsNumber {
+    position: relative;
+    justify-self: left;
+    top: -16px;
+}

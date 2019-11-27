@@ -1,0 +1,27 @@
+.resourcesContainer {
+    display: grid;
+    grid-template-columns: 227px 311px;
+    height: calc(635px / 4);
+    align-items: center;
+    justify-items: center;
+}
+
+.resourcesLogoOuter {
+    position: relative;
+    height: calc(635px / 4);
+    top: 21px;
+    left: 17px;
+}
+
+.resourcesLogoInner {
+    position: relative;
+    z-index: 1;
+    bottom: 103px;
+    left: 1px;
+}
+
+.resourcesNumber {
+    position: relative;
+    justify-self: left;
+    top: -8px;
+}
